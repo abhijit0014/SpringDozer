@@ -2,6 +2,7 @@ package com.spring.controllers;
 
 
 import org.dozer.DozerBeanMapper;
+import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +25,8 @@ public class RootController {
 		employeeDTO.setCity("Kolkata");
 		employeeDTO.setAge(25);
 		
-		
-		Mapper mapper = new DozerBeanMapper();
+		//Mapper mapper = new DozerBeanMapper();
+		Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 		EmployeeEntity employeeEntity = mapper.map(employeeDTO, EmployeeEntity.class);
 		
 		
